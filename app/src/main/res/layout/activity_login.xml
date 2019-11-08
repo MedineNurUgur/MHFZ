@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.LoginActivity"
+    android:background="@drawable/linebackgrounds"
+    >
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginTop="52dp"
+            android:gravity="center"
+            android:text="MHFZ İŞ GÜVENLİĞİ SİSTEMLERİ"
+            android:textColor="@color/hardal_sarısı"
+            android:textSize="32sp" />
+
+        <EditText
+            android:id="@+id/id_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:ems="10"
+            android:hint="sicil numaranızı giriniz"
+            android:inputType="text"
+            android:textColor="@color/hardal_sarısı"/>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:ems="10"
+            android:hint="şifrenizi giriniz"
+            android:inputType="textPassword"
+            android:textColor="@color/hardal_sarısı"/>
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Beni Hatırla !"
+            android:textColor="@color/hardal_sarısı"/>
+
+        <Button
+            android:id="@+id/girisButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="GİRİŞ"
+            android:textColor="@color/hardal_sarısı"
+            android:textSize="25sp"
+            android:background="@android:color/transparent"
+            />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

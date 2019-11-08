@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "357756476774",
+    "firebase_url": "https://mhfz-7ade2.firebaseio.com",
+    "project_id": "mhfz-7ade2",
+    "storage_bucket": "mhfz-7ade2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357756476774:android:d81b725c85f3412d0f7ca7",
+        "android_client_info": {
+          "package_name": "radinyazilim.com.mhfz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357756476774-t3koc21r56o8ngchmlr6keaoufeincsf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "radinyazilim.com.mhfz",
+            "certificate_hash": "364c2f5dbbb9c8409fb5e3d56a27d310ec7e9d11"
+          }
+        },
+        {
+          "client_id": "357756476774-ubnosnutjk00rb2mfhdqin7qiblvskro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWi36Febm0wJ4fPKEWyYcEqgrHBeQhhVk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357756476774-ubnosnutjk00rb2mfhdqin7qiblvskro.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

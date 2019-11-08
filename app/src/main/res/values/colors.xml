@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="siyah">#000000</color>
+    <color name="hardal_sarısı">#ffdb58</color>
+    <color name="gri">#999999</color>
+    <color name="beyaz">#FFFFFF</color>
+    <color name="hardal2">#F3D217</color>
+    <color name="soluk_sari">#FFFF66</color>
+    <color name="golmavisi">#18a7b5</color>
+    <color name="bej">#F5F5DC</color>
+    <color name="acik_krem">#f2e8c9</color>
+    <color name="istiridye_beyazi">#eae6ca</color>
+    <color name="splash_bg_gradient_bottom">#F3D217</color>
+    <color name="primaryColor">#fff176</color>
+    <color name="primaryLightColor">#ffffa8</color>
+    <color name="primaryDarkColor">#cabf45</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="solukgri">#CCCCCC</color>
+    <color name="lightgrey">#e0e0e0</color>
+    <color name="darkgrey">#aeaeae</color>
+    <color name="kirmizi">#ff0000</color>
+</resources>
