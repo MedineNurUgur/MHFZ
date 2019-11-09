@@ -7,6 +7,7 @@ package radinyazilim.com.mhfz.Activities;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -50,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
 
 
 
@@ -138,6 +140,15 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (controlFirstTime()){
+            startActivity(new Intent(LoginActivity.this, IntroActivity.class));
+        }
+    }
+
     private void setRemind(String id, String pass) {
         editor.putString("userID", id);
         editor.putString("userPass", pass);
@@ -156,5 +167,10 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         builder.show();
+    }
+
+    private boolean controlFirstTime(){
+        SharedPreferences preferences = getSharedPreferences("isFirstTime", MODE_PRIVATE);
+        return preferences.getBoolean("isFirstTime", true);
     }
 }
