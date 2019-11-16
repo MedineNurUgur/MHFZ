@@ -17,9 +17,11 @@ public class IntroActivity extends AppIntro {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        addSlide(IntroSettingsFragment.newInstance(R.layout.fragment_intro_settings,R.drawable.logomuz,R.string.app_name));
-        addSlide(IntroSettingsFragment.newInstance(R.layout.fragment_intro_settings,R.drawable.logomuz,R.string.app_name));
-        addSlide(IntroSettingsFragment.newInstance(R.layout.fragment_intro_settings,R.drawable.logomuz,R.string.app_name));
+        addSlide(IntroSettingsFragment.newInstance(R.layout.fragment_intro_settings,R.drawable.logomuz,R.string.intro_purpose,R.string.intro_purpose_title));
+        addSlide(IntroSettingsFragment.newInstance(R.layout.fragment_intro_settings,R.drawable.logomuz,R.string.intro_employee_error,R.string.intro_employee_error_title));
+        addSlide(IntroSettingsFragment.newInstance(R.layout.fragment_intro_settings,R.drawable.logomuz,R.string.intro_employee,R.string.intro_employee_title));
+        addSlide(IntroSettingsFragment.newInstance(R.layout.fragment_intro_settings,R.drawable.logomuz,R.string.intro_external_factors,R.string.intro_external_factors_title));
+        addSlide(IntroSettingsFragment.newInstance(R.layout.fragment_intro_settings,R.drawable.logomuz,R.string.intro_email,R.string.intro_email_title));
     }
 
     @Override

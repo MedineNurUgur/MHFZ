@@ -5,6 +5,19 @@
     <string name="title_dashboard">Kontrol</string>
     <string name="title_notifications">Ayarlar</string>
     <string name="id"></string>
+    <string name="intro_purpose_title"></string>
+    <string name="intro_purpose">Slogan</string>
+    <string name="intro_employee_title">İhmalleri Takip Edin</string>
+    <string name="intro_employee">Sahada bulunan çalışanların iş güvenliği ekipmanlarını kullanmadığı süreyi kontrol edebilirsiniz.
+        Aynı zamanda bu süre doğrultusunda çalışanın puanını görebilirsiniz</string>
+    <string name="intro_employee_error_title">Çalışanlarınızı Takip Edin</string>
+    <string name="intro_employee_error">Sahada bulunan çalışanlarınızın durumunu görebilir, ihmal durumunda otomatik olarak bildirim alabilirsiniz</string>
+    <string name="intro_external_factors_title">Çevresel Faktörleri Takip Edin</string>
+    <string name="intro_external_factors">Çevresel koruma faktörlerinin durumunu otomatik veya manuel olarak fotoğraf ile bildirebilirsiniz</string>
+    <string name="intro_information_title">Detaylı Bilgi İçin</string>
+    <string name="intro_information">Uygulama kullanımı hakkında daha fazla bilgi edinmek için lütfen aşağıdaki bağlantı adresine tıklayınız</string>
+    <string name="intro_email_title"></string>
+    <string name="intro_email">Daha fazlası için E-Posta adresinden bize ulaşabilirsiniz</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

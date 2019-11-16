@@ -10,9 +10,21 @@ public class LoginModel {
     @SerializedName("id")
     @Expose
     public String id;
+    @SerializedName("name")
+    @Expose
+    public String name;
+    @SerializedName("surname")
+    @Expose
+    public String surname;
     @SerializedName("password")
     @Expose
     public String password;
+    @SerializedName("companyId")
+    @Expose
+    public Integer companyId;
+    @SerializedName("address")
+    @Expose
+    public String address;
 
 
 }
