@@ -53,7 +53,7 @@ public class EmployeeDetailActivity extends AppCompatActivity {
 
 
         nameTxt = findViewById(R.id.txt_name);
-        idTxt = findViewById(R.id.Id);
+        idTxt = findViewById(R.id.txt_id);
         puanTxt = findViewById(R.id.txt_puan);
         timeTxt = findViewById(R.id.txt_time);
         positive = findViewById(R.id.btn_feedback);
