@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,9 +13,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 
 import java.util.List;
 
+import radinyazilim.com.mhfz.Activities.EmployeeDetailActivity;
 import radinyazilim.com.mhfz.Activities.LoginActivity;
 import radinyazilim.com.mhfz.Api.ApiClient;
 import radinyazilim.com.mhfz.Api.ExpertApiClient;
@@ -33,7 +39,6 @@ public class KontrolFragment extends Fragment {
     ImageButton envanter_ok,file_ok,halat_ok,cevre_ok;
     ImageButton envanter_minus,file_minus,halat_minus,cevre_minus;
     private static final String TAG = "Mhfz-> ";
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +61,7 @@ public class KontrolFragment extends Fragment {
         envanter_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Alert("Kayıt","Envanterlerin tam olduğuna dair bildiriminiz şirkete iletilmiştir.");
+                showDialog("Kayıt","Envanterlerin tam olduğuna dair bildiriminiz şirkete iletilmiştir.");
                 createPost("İşçi envanterinde eksik yok.");
             }
         });
@@ -65,7 +70,7 @@ public class KontrolFragment extends Fragment {
         envanter_minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Alert("Kayıt","Envanterlerin tam olmadığına dair bildiriminiz şirkete iletilmiştir");
+                showDialog("Kayıt","Envanterlerin tam olmadığına dair bildiriminiz şirkete iletilmiştir");
                 createPost("İşçi envanterinde eksik var.");
 
             }
@@ -74,7 +79,7 @@ public class KontrolFragment extends Fragment {
         file_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Alert("Kayıt","Fileler tam ve sağlam olduğuna dair mesajınız şirkete iletilmiştir.");
+                showDialog("Kayıt","Fileler tam ve sağlam olduğuna dair mesajınız şirkete iletilmiştir.");
                 createPost("Fileler tam ve sağlam.");
             }
         });
@@ -84,14 +89,14 @@ public class KontrolFragment extends Fragment {
         file_minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Alert("Kayıt","Fileler tam ve sağlam olmadığına dair bildiriminiz şirkete iletilmiştir.");
+                showDialog("Kayıt","Fileler tam ve sağlam olmadığına dair bildiriminiz şirkete iletilmiştir.");
                 createPost("Fileler tam ve sağlam değil.");
             }
         });
         halat_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Alert("Kayıt","Halatlar tam ve sağlam olduğuna dair bildiriminiz şirkete iletilmiştir.");
+                showDialog("Kayıt","Halatlar tam ve sağlam olduğuna dair bildiriminiz şirkete iletilmiştir.");
                 createPost("Halatlar tam ve sağlam.");
             }
         });
@@ -100,14 +105,14 @@ public class KontrolFragment extends Fragment {
         halat_minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Alert("Kayıt","Halatlar tam ve sağlam olmadığına dair bildiriminiz şirkete iletilmiştir.");
+                showDialog("Kayıt","Halatlar tam ve sağlam olmadığına dair bildiriminiz şirkete iletilmiştir.");
                 createPost("Halatlar tam ve sağlam değil.");
             }
         });
         cevre_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Alert("Kayıt","Çevre koruma tedbirlerinin alındığına dair bildiriminiz şirkete iletilmiştir.");
+                showDialog("Kayıt","Çevre koruma tedbirlerinin alındığına dair bildiriminiz şirkete iletilmiştir.");
                 createPost("Çevre koruması sağlandı.");
             }
         });
@@ -116,7 +121,7 @@ public class KontrolFragment extends Fragment {
         cevre_minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Alert("Kayıt","Çevre koruma tedbirlerinin alınmadığına dair bildiriminiz şirkete iletilmiştir.");
+                showDialog("Kayıt","Çevre koruma tedbirlerinin alınmadığına dair bildiriminiz şirkete iletilmiştir.");
                 createPost("Çevre koruması sağlanamadı.");
             }
         });
@@ -124,20 +129,7 @@ public class KontrolFragment extends Fragment {
 
         return view;
     }
-    private void Alert(String title,String message){
 
-        final android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getContext());
-        builder.setTitle(title);
-        builder.setMessage(message);
-        builder.setCancelable(false);
-        builder.setPositiveButton("TAMAM", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        builder.show();
-    }
     private void createPost(String feedbackMesage){
         FeedbackRestInterface feedbackRestInterface = FeedbackApiClient.getClient().create(FeedbackRestInterface.class);
 
@@ -148,7 +140,10 @@ public class KontrolFragment extends Fragment {
             @Override
             public void onResponse(Call<FeedbackModel> call, Response<FeedbackModel> response) {
                 if(!response.isSuccessful()){
-                    Log.d(TAG, String.valueOf(response.code()));
+                    Toast.makeText(getContext(),"Durum Şirketinize Bildirildi",Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(getContext(),"Bir hata oluştu lütfen tekrar deneyin.",Toast.LENGTH_LONG).show();
                 }
                 FeedbackModel postResponse = response.body();
 
@@ -162,6 +157,24 @@ public class KontrolFragment extends Fragment {
             }
         });
 
+    }
+
+    public void showDialog(String title,String message){
+         new MaterialDialog.Builder(getContext())
+                 .title(title)
+                .content(message)
+                .positiveText("TAMAM")
+                .positiveColor(getResources().getColor(R.color.colorPrimaryDark))
+                .cancelable(false)
+                .onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        dialog.dismiss();
+                        //
+                    }
+                })
+                .build()
+                .show();
     }
 
 }

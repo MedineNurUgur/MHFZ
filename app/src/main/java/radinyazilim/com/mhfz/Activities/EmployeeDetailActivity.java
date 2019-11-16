@@ -1,6 +1,7 @@
 package radinyazilim.com.mhfz.Activities;
 
 import android.content.DialogInterface;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
+
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 
 import radinyazilim.com.mhfz.Api.FeedbackApiClient;
 import radinyazilim.com.mhfz.Api.FeedbackRestInterface;
@@ -72,29 +77,40 @@ public class EmployeeDetailActivity extends AppCompatActivity {
         positive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createPost("Acil Durum");
-                Alert("Dikkat","Acil Durum şirketinize bildirildi.");
+
+                showDialog("Dikkat","Acil Durum şirketinize bildirilmek üzere devam etmek istiyormusunuz?");
             }
         });
 
     }
-    private void Alert(String title,String message){
+    public void showDialog(String title,String message){
+        new MaterialDialog.Builder(this)
+                .title(title)
+                .content(message)
+                .positiveText("DEVAM")
+                .negativeText("Vazgeç")
+                .positiveColor(getResources().getColor(R.color.colorPrimaryDark))
+                .negativeColor(getResources().getColor(R.color.kirmizi))
+                .cancelable(false)
+                .onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        createPost("Acil Durum");
+                        dialog.dismiss();
 
-        final android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(EmployeeDetailActivity.this);
-        builder.setTitle(title);
-        builder.setMessage(message);
-        builder.setCancelable(false);
-        builder.setPositiveButton("TAMAM", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        builder.show();
+                    }
+                })
+                .onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        dialog.dismiss();
+                    }
+                })
+                .build()
+                .show();
     }
     private void createPost(String feedbackMesage){
         FeedbackRestInterface feedbackRestInterface = FeedbackApiClient.getClient().create(FeedbackRestInterface.class);
-
 
         FeedbackModel feedback = new FeedbackModel(feedbackMesage);
         Call<FeedbackModel> call= feedbackRestInterface.createPost(feedback);
@@ -102,12 +118,12 @@ public class EmployeeDetailActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<FeedbackModel> call, Response<FeedbackModel> response) {
                 if(!response.isSuccessful()){
-                    Log.d(TAG, String.valueOf(response.code()));
+                    Toast.makeText(EmployeeDetailActivity.this,"Acil Durum Şirketinize Bildirildi",Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(EmployeeDetailActivity.this,"Bir hata oluştu lütfen tekrar deneyin.",Toast.LENGTH_LONG).show();
                 }
                 FeedbackModel postResponse = response.body();
-
-
-
             }
 
             @Override
