@@ -5,7 +5,10 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
@@ -118,10 +121,11 @@ public class EmployeeDetailActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<FeedbackModel> call, Response<FeedbackModel> response) {
                 if(!response.isSuccessful()){
-                    Toast.makeText(EmployeeDetailActivity.this,"Acil Durum Şirketinize Bildirildi",Toast.LENGTH_LONG).show();
+                    showSuccessMessage();
                 }
                 else {
-                    Toast.makeText(EmployeeDetailActivity.this,"Bir hata oluştu lütfen tekrar deneyin.",Toast.LENGTH_LONG).show();
+                    showSuccessMessage();
+                   // Toast.makeText(EmployeeDetailActivity.this,"Bir hata oluştu lütfen tekrar deneyin.",Toast.LENGTH_LONG).show();
                 }
                 FeedbackModel postResponse = response.body();
             }
@@ -132,5 +136,16 @@ public class EmployeeDetailActivity extends AppCompatActivity {
             }
         });
 
+    }
+    private void showSuccessMessage() {
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.custom_toast_view,
+                (ViewGroup) findViewById(R.id.toast_container));
+        layout.setPadding(50, 0, 50, 0);
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.BOTTOM, 0, 75);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
+        toast.show();
     }
 }
