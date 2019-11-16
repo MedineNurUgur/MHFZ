@@ -68,4 +68,36 @@
         <item name="android:textColor">@color/beyaz</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="subTitle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">21sp</item>
+        <item name="android:textColor">@color/beyaz</item>
+    </style>
+    <style name="title" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/siyah</item>
+    </style>
+    <style name="Header" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/gri</item>
+    </style>
+    <style name="body2" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/siyah</item>
+    </style>
+    <style name="body1" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/gri</item>
+    </style>
+    <style name="buttonWhite" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textSize">15sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/hardal2</item>
+    </style>
+    <style name="buttonYellow" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/beyaz</item>
+
+    </style>
 </resources>

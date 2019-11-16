@@ -52,11 +52,11 @@ public class EmployeeDetailActivity extends AppCompatActivity {
         });
 
 
-        nameTxt = findViewById(R.id.Name);
+        nameTxt = findViewById(R.id.txt_name);
         idTxt = findViewById(R.id.Id);
-        puanTxt = findViewById(R.id.Puan);
-        timeTxt = findViewById(R.id.Time);
-        positive = findViewById(R.id.btn_positive);
+        puanTxt = findViewById(R.id.txt_puan);
+        timeTxt = findViewById(R.id.txt_time);
+        positive = findViewById(R.id.btn_feedback);
 
         Bundle extras = getIntent().getExtras();
         name = extras.getString("Name");
