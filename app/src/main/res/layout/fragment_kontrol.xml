@@ -287,6 +287,13 @@
             android:layout_marginRight="8dp"
             android:text="Farklı eksiklikler için ayarlar sayfasındaki geri bildirim kutusunu kullanınız." />
 
+        <ImageButton
+            android:id="@+id/foto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/camera"
+            android:background="@android:color/transparent"/>
+
 
     </LinearLayout>
 

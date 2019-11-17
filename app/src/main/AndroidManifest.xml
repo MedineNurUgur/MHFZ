@@ -3,6 +3,8 @@
     package="radinyazilim.com.mhfz">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,8 +13,12 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Activities.IntroActivity"></activity>
-        <activity android:name=".Activities.EmployeeDetailActivity"></activity>
+        <activity
+            android:name=".Activities.FotoControlActivity"
+            android:label="@string/title_activity_foto_control"
+            android:theme="@style/NoActionBar"></activity>
+        <activity android:name=".Activities.IntroActivity" />
+        <activity android:name=".Activities.EmployeeDetailActivity" />
         <activity
             android:name=".Activities.SplashActivity"
             android:noHistory="true">

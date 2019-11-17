@@ -2,8 +2,12 @@ package radinyazilim.com.mhfz.Fragment;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -13,21 +17,31 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import radinyazilim.com.mhfz.Activities.EmployeeDetailActivity;
+import radinyazilim.com.mhfz.Activities.FotoControlActivity;
 import radinyazilim.com.mhfz.Activities.LoginActivity;
 import radinyazilim.com.mhfz.Api.ApiClient;
+import radinyazilim.com.mhfz.Api.ControlsRestInterface;
 import radinyazilim.com.mhfz.Api.ExpertApiClient;
 import radinyazilim.com.mhfz.Api.ExpertRestInterface;
 import radinyazilim.com.mhfz.Api.FeedbackApiClient;
 import radinyazilim.com.mhfz.Api.FeedbackRestInterface;
 import radinyazilim.com.mhfz.R;
+import radinyazilim.com.mhfz.models.ControlModel;
 import radinyazilim.com.mhfz.models.ExpertModel;
 import radinyazilim.com.mhfz.models.FeedbackModel;
 import retrofit2.Call;
@@ -36,8 +50,12 @@ import retrofit2.Response;
 
 
 public class KontrolFragment extends Fragment {
+    private static final int RESULT_OK = -1;
     ImageButton envanter_ok,file_ok,halat_ok,cevre_ok;
     ImageButton envanter_minus,file_minus,halat_minus,cevre_minus;
+    ImageButton foto;
+    private static final int IMAGE_ACTION_CODE = 102;
+
     private static final String TAG = "Mhfz-> ";
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,6 +75,15 @@ public class KontrolFragment extends Fragment {
         halat_minus = view.findViewById(R.id.halat_minus);
         cevre_ok = view.findViewById(R.id.cevre_ok);
         cevre_minus = view.findViewById(R.id.cevre_minus);
+        foto = view.findViewById(R.id.foto);
+
+        foto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(takePhotoIntent, IMAGE_ACTION_CODE);
+            }
+        });
 
         envanter_ok.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,7 +166,7 @@ public class KontrolFragment extends Fragment {
         call.enqueue(new Callback<FeedbackModel>() {
             @Override
             public void onResponse(Call<FeedbackModel> call, Response<FeedbackModel> response) {
-                if(!response.isSuccessful()){
+                if(response.isSuccessful()){
                     Toast.makeText(getContext(),"Durum Şirketinize Bildirildi",Toast.LENGTH_LONG).show();
                 }
                 else {
@@ -176,5 +203,27 @@ public class KontrolFragment extends Fragment {
                 .build()
                 .show();
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode != RESULT_OK) return;
+
+        if(requestCode == IMAGE_ACTION_CODE){
+            Bundle extras = data.getExtras();
+            Bitmap bmp = (Bitmap) extras.get("data");
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byte[] byteArray = stream.toByteArray();
+
+            Intent intent = new Intent(getContext(), FotoControlActivity.class);
+            intent.putExtra("image",byteArray);
+            startActivity(intent);
+        }
+
+
+    }
+
 
 }

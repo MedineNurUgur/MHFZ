@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.login_activity);
 
 
 
@@ -70,9 +70,9 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-        id_number = findViewById(R.id.id_num);
-        password = findViewById(R.id.password);
-        girisButton = findViewById(R.id.girisButton);
+        id_number = findViewById(R.id.editTextEmail);
+        password = findViewById(R.id.editTextPassword);
+        girisButton = findViewById(R.id.cirLoginButton);
         checkBox = findViewById(R.id.checkBox);
 
         //  SharedPreferences ile checkbox'ı aktif etme
