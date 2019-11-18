@@ -49,8 +49,6 @@
                     android:text="@string/app_name"
                     android:layout_marginTop="40dp"/>
                 <android.support.v7.widget.CardView
-                    xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
                     style="@style/loginCard"
                     app:cardCornerRadius="@dimen/loginCardRadius"
                     android:elevation="5dp"
@@ -58,8 +56,6 @@
                     android:layout_marginTop="@dimen/loginViewsMargin"
                     android:layout_marginBottom="@dimen/loginViewsMargin"
                     android:background="@color/beyaz">
-
-
 
                     <LinearLayout
                         style="@style/linearParent"

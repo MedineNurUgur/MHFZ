@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Fragment.SettingsFragment">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_background">
+
+            <android.support.design.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civProfilePic"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/spacing_major"
+                    android:src="@drawable/profile_image"
+                    app:civ_border_color="#ffffff"
+                    app:civ_border_width="3dp" />
+
+            </android.support.design.widget.CoordinatorLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/spacing_major"
+                android:layout_marginLeft="@dimen/spacing_major"
+                android:layout_marginEnd="@dimen/spacing_major"
+                android:layout_marginRight="@dimen/spacing_major"
+                android:layout_marginBottom="@dimen/spacing_major"
+                android:background="@drawable/profile_background"
+                android:elevation="2dp">
+
+                <TextView
+                    android:id="@+id/profile_txt_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="68dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Esra Medine"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/profile_txt_title"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profile_txt_name"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:lines="2"
+                    android:text="İnşaat firması"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/profile_txt_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profile_txt_title"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Bla bla bla bla bla bla bla bla bla"
+                    android:textSize="16sp" />
+
+                <Space
+                    android:id="@+id/spaceHolder"
+                    android:layout_width="10dp"
+                    android:layout_height="0dp"
+                    android:layout_below="@id/profile_txt_title"
+                    android:layout_centerHorizontal="true" />
+
+                <Button
+                    android:id="@+id/profile_btn_password"
+                    android:layout_width="110dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/profile_txt_address"
+                    android:layout_marginBottom="16dp"
+                    android:layout_toStartOf="@id/spaceHolder"
+                    android:layout_toLeftOf="@id/spaceHolder"
+                    android:background="@drawable/password_button"
+                    android:fontFamily="sans-serif-medium"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Şİfre Değiştir"
+                    android:textColor="@color/hardal2"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:layout_width="110dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/profile_txt_address"
+                    android:layout_marginBottom="16dp"
+                    android:layout_toEndOf="@id/spaceHolder"
+                    android:layout_toRightOf="@id/spaceHolder"
+                    android:background="@drawable/feedback_button"
+                    android:fontFamily="sans-serif-medium"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Geri Bildirim"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/profile_txt_info"
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profile_btn_password"
+                    android:layout_centerHorizontal="true"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:lines="2"
+                    android:text="MHFZ İş güvenliği sistemleri"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

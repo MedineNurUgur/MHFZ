@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="siyah">#000000</color>
-    <color name="hardal_sarısı">#FFDB58</color>
+    <color name="hardal_sarısı">#ffdb58</color>
     <color name="gri">#999999</color>
     <color name="beyaz">#FFFFFF</color>
     <color name="hardal2">#F3D217</color>
@@ -24,5 +24,8 @@
     <color name="kirmizi">#ff0000</color>
     <color name="loginBkColor">#f0f0f0</color>
     <color name="light">#f3f4f5</color>
+
+    <color name="dialog_green">#00BA7C</color>
+    <color name="dialog_red">#D0021B</color>
 
 </resources>

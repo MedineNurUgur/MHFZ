@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:text="Geri Bildirim"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/Feedback"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@color/beyaz"
+            android:gravity="start|top"
+            android:hint="Tarafımıza iletmek istediğiniz mesajı yazınız."
+            android:inputType="textMultiLine" />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

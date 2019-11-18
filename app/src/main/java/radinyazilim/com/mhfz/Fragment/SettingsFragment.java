@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +35,6 @@ import retrofit2.Response;
 
 public class SettingsFragment extends Fragment {
     EditText Id,EskiParola,YeniParola,Feedback;
-    Button Parola,gonder;
     RestInterface restInterface;
     List<LoginModel> LoginList = new ArrayList<>();
     LoginModel expert;
@@ -46,7 +49,22 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_settings,null);
+        View view = inflater.inflate(R.layout.fragment_profile,null);
+
+        Button btnFeedback = view.findViewById(R.id.profile_btn_password);
+        Button btnPassword = view.findViewById(R.id.profile_btn_password);
+        btnFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showFeedBackDialog();
+            }
+        });
+        btnPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPasswordDialog();
+            }
+        });
         restInterface = ApiClient.getClient().create(RestInterface.class);
         Call<List<LoginModel>> call = restInterface.getLoginModel();
         call.enqueue(new Callback<List<LoginModel>>() {
@@ -60,16 +78,50 @@ public class SettingsFragment extends Fragment {
 
             }
         });
-        Id = view.findViewById(R.id.Id);
-        EskiParola = view.findViewById(R.id.EskiParola);
-        YeniParola = view.findViewById(R.id.YeniParola);
-        Feedback = view.findViewById(R.id.Feedback);
-        Parola = view.findViewById(R.id.Parola);
-        gonder = view.findViewById(R.id.Gonder);
 
-        Parola.setOnClickListener(new View.OnClickListener() {
+        return view;
+
+    }
+
+    private void createPost(String feedbackMesage){
+        FeedbackRestInterface feedbackRestInterface = FeedbackApiClient.getClient().create(FeedbackRestInterface.class);
+
+
+        FeedbackModel feedback = new FeedbackModel(feedbackMesage);
+        Call<FeedbackModel> call= feedbackRestInterface.createPost(feedback);
+        call.enqueue(new Callback<FeedbackModel>() {
             @Override
-            public void onClick(View v) {
+            public void onResponse(Call<FeedbackModel> call, Response<FeedbackModel> response) {
+                if(!response.isSuccessful()){
+                    Log.d(TAG, String.valueOf(response.code()));
+                }
+                FeedbackModel postResponse = response.body();
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<FeedbackModel> call, Throwable t) {
+
+            }
+        });
+
+    }
+
+    public void showPasswordDialog(){
+        final MaterialDialog.Builder materialDialog = new MaterialDialog.Builder(getContext());
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.password_change_dialog, null);
+        Id = dialogView.findViewById(R.id.Id);
+        EskiParola = dialogView.findViewById(R.id.EskiParola);
+        YeniParola = dialogView.findViewById(R.id.YeniParola);
+        materialDialog.customView(dialogView, false);
+        materialDialog.cancelable(false);
+        materialDialog.positiveText("Parola değiştir");
+        materialDialog.onPositive(new MaterialDialog.SingleButtonCallback() {
+            @Override
+            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
 
                 if(LoginList!=null){
                     for(int i = 0;i<LoginList.size();i++){
@@ -111,23 +163,35 @@ public class SettingsFragment extends Fragment {
                 }
                 else{
                     Log.d(TAG,"İşci bulunamadı");
-                   Alert("Hatalı işlem","Kullanıcı numaranızı yanlış girdiniz.Lütfen tekrar giriniz.");
+                    Alert("Hatalı işlem","Kullanıcı numaranızı yanlış girdiniz.Lütfen tekrar giriniz.");
                 }
+
+                dialog.dismiss();
+
             }
-
         });
+        materialDialog.show();
+    }
 
-        gonder.setOnClickListener(new View.OnClickListener() {
+    public void showFeedBackDialog(){
+        final MaterialDialog.Builder materialDialog = new MaterialDialog.Builder(getContext());
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.feedback_dialog, null);
+        Feedback = dialogView.findViewById(R.id.Feedback);
+        materialDialog.customView(dialogView, false);
+        materialDialog.cancelable(false);
+        materialDialog.positiveText("Gönder");
+        materialDialog.onPositive(new MaterialDialog.SingleButtonCallback() {
             @Override
-            public void onClick(View v) {
+            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                 String feedback = Feedback.getText().toString();
                 createPost(feedback);
                 Alert("Kayıt","Geri bildiriminiz başarıyla tarafımıza gönderilmiştir.");
+                dialog.dismiss();
+
             }
         });
-
-        return view;
-
+        materialDialog.show();
     }
     private void Alert(String title,String message){
         final android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getContext());
@@ -142,29 +206,5 @@ public class SettingsFragment extends Fragment {
         });
         builder.show();
     }
-    private void createPost(String feedbackMesage){
-        FeedbackRestInterface feedbackRestInterface = FeedbackApiClient.getClient().create(FeedbackRestInterface.class);
 
-
-        FeedbackModel feedback = new FeedbackModel(feedbackMesage);
-        Call<FeedbackModel> call= feedbackRestInterface.createPost(feedback);
-        call.enqueue(new Callback<FeedbackModel>() {
-            @Override
-            public void onResponse(Call<FeedbackModel> call, Response<FeedbackModel> response) {
-                if(!response.isSuccessful()){
-                    Log.d(TAG, String.valueOf(response.code()));
-                }
-                FeedbackModel postResponse = response.body();
-
-
-
-            }
-
-            @Override
-            public void onFailure(Call<FeedbackModel> call, Throwable t) {
-
-            }
-        });
-
-    }
 }
