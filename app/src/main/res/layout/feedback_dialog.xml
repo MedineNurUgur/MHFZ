@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,14 +16,22 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif-black"
             android:gravity="center"
             android:text="Geri Bildirim"
             android:textSize="25sp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="@dimen/half_padding"
+            app:srcCompat="@color/gri" />
 
         <EditText
             android:id="@+id/Feedback"
             android:layout_width="match_parent"
             android:layout_height="250dp"
+            android:layout_marginTop="@dimen/spacing_minor"
             android:background="@color/beyaz"
             android:gravity="start|top"
             android:hint="Tarafımıza iletmek istediğiniz mesajı yazınız."

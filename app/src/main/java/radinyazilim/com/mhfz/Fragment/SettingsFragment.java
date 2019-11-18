@@ -51,7 +51,7 @@ public class SettingsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile,null);
 
-        Button btnFeedback = view.findViewById(R.id.profile_btn_password);
+        Button btnFeedback = view.findViewById(R.id.profile_btn_feedback);
         Button btnPassword = view.findViewById(R.id.profile_btn_password);
         btnFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,8 +97,6 @@ public class SettingsFragment extends Fragment {
                 }
                 FeedbackModel postResponse = response.body();
 
-
-
             }
 
             @Override
@@ -117,7 +115,7 @@ public class SettingsFragment extends Fragment {
         EskiParola = dialogView.findViewById(R.id.EskiParola);
         YeniParola = dialogView.findViewById(R.id.YeniParola);
         materialDialog.customView(dialogView, false);
-        materialDialog.cancelable(false);
+        materialDialog.cancelable(true);
         materialDialog.positiveText("Parola değiştir");
         materialDialog.onPositive(new MaterialDialog.SingleButtonCallback() {
             @Override
@@ -179,7 +177,7 @@ public class SettingsFragment extends Fragment {
         final View dialogView = inflater.inflate(R.layout.feedback_dialog, null);
         Feedback = dialogView.findViewById(R.id.Feedback);
         materialDialog.customView(dialogView, false);
-        materialDialog.cancelable(false);
+        materialDialog.cancelable(true);
         materialDialog.positiveText("Gönder");
         materialDialog.onPositive(new MaterialDialog.SingleButtonCallback() {
             @Override
