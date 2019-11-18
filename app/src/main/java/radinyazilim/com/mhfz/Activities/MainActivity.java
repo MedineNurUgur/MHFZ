@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         editor = preferences.edit();
 
         mToolbar = findViewById(R.id.detail_toolbar);
-        mToolbar.setNavigationIcon(R.drawable.signout);
+        mToolbar.setNavigationIcon(R.drawable.powerbutton);
         mToolbar.getNavigationIcon();
         mToolbar.setTitle("");
         setSupportActionBar(mToolbar);

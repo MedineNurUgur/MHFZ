@@ -2,8 +2,12 @@ package radinyazilim.com.mhfz.Fragment;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -12,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -35,9 +40,12 @@ import retrofit2.Response;
 
 public class SettingsFragment extends Fragment {
     EditText Id,EskiParola,YeniParola,Feedback;
+    TextView name,address,firm;
     RestInterface restInterface;
     List<LoginModel> LoginList = new ArrayList<>();
     LoginModel expert;
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
     private static final String TAG = "Mhfz-> ";
 
     @Override
@@ -50,6 +58,18 @@ public class SettingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile,null);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(getContext().getApplicationContext());
+        editor = preferences.edit();
+
+        name = view.findViewById(R.id.profile_txt_name);
+        address = view.findViewById(R.id.profile_txt_address);
+        firm = view.findViewById(R.id.profile_txt_title);
+
+        name.setText(preferences.getString("userName",""));
+        address.setText(preferences.getString("userAddress",""));
+        firm.setText(preferences.getString("userID",""));
+
 
         Button btnFeedback = view.findViewById(R.id.profile_btn_feedback);
         Button btnPassword = view.findViewById(R.id.profile_btn_password);
@@ -65,19 +85,7 @@ public class SettingsFragment extends Fragment {
                 showPasswordDialog();
             }
         });
-        restInterface = ApiClient.getClient().create(RestInterface.class);
-        Call<List<LoginModel>> call = restInterface.getLoginModel();
-        call.enqueue(new Callback<List<LoginModel>>() {
-            @Override
-            public void onResponse(Call<List<LoginModel>> call, Response<List<LoginModel>> response) {
-                LoginList = response.body();
-            }
 
-            @Override
-            public void onFailure(Call<List<LoginModel>> call, Throwable t) {
-
-            }
-        });
 
         return view;
 
@@ -85,8 +93,6 @@ public class SettingsFragment extends Fragment {
 
     private void createPost(String feedbackMesage){
         FeedbackRestInterface feedbackRestInterface = FeedbackApiClient.getClient().create(FeedbackRestInterface.class);
-
-
         FeedbackModel feedback = new FeedbackModel(feedbackMesage);
         Call<FeedbackModel> call= feedbackRestInterface.createPost(feedback);
         call.enqueue(new Callback<FeedbackModel>() {

@@ -110,10 +110,11 @@ public class LoginActivity extends AppCompatActivity {
                     if (expert != null) {
                         if (password.getText().toString().equals(expert.password)) {
                             if (checkBox.isChecked()) {
-                                setRemind(id_number.getText().toString(), password.getText().toString());
+                                setRemind(id_number.getText().toString(), password.getText().toString(),expert.name+expert.surname,expert.address);
                             }
                             else{
-                                editor.putBoolean("isChecked", true);
+                                setRemind(id_number.getText().toString(), password.getText().toString(),expert.name+expert.surname,expert.address);
+                                editor.putBoolean("isChecked", false);
                                 editor.commit();
                             }
                             editor.putBoolean("login",true);
@@ -149,9 +150,11 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void setRemind(String id, String pass) {
+    private void setRemind(String id, String pass,String name,String address) {
         editor.putString("userID", id);
         editor.putString("userPass", pass);
+        editor.putString("userName",name);
+        editor.putString("userAddress",address);
         editor.putBoolean("isChecked", true);
         editor.commit();
     }
