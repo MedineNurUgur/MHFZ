@@ -221,7 +221,7 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="center"
             android:background="@drawable/edit_square"
             android:layout_marginRight="@dimen/fab_margin"
             android:text="@string/feedback_button" />

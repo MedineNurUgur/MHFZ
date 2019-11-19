@@ -26,14 +26,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
+        android:layout_margin="20dp"
         android:backgroundTint="@color/hardal_sarısı"
         app:srcCompat="@drawable/send" />
 
     <EditText
         android:id="@+id/editInformation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_weight="1"
         android:ems="10"
         android:hint="@string/control_foto_description"
@@ -41,5 +41,5 @@
         android:inputType="textPersonName"
         android:layout_gravity="bottom|end"
         android:theme="@style/CustomEditTextStyle"
-        />
+        android:layout_marginBottom="10dp"/>
 </android.support.design.widget.CoordinatorLayout>
