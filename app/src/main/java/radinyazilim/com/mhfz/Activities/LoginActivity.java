@@ -123,17 +123,17 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                         } else {
-                            Alert("Hatalı Giriş", "Parola yanlış! Tekrar Deneyin");
+                            Alert(getResources().getString(R.string.login_dialog_title), getResources().getString(R.string.login_dialog_password));
                         }
                     }
                     else{
-                        Alert("Hatalı Giriş","Kullanıcı Id yanlış! Lütfen tekrar deneyiniz.");
+                        Alert(getResources().getString(R.string.login_dialog_title),getResources().getString(R.string.login_dialog_id));
                     }
 
 
                 }
                 else {
-                    Alert("Hatalı Giriş","Alanlar boş bırakılamaz");
+                    Alert(getResources().getString(R.string.login_dialog_title),getResources().getString(R.string.login_dialog_empty));
 
                 }
             }
@@ -163,7 +163,7 @@ public class LoginActivity extends AppCompatActivity {
         builder.setTitle(title);
         builder.setMessage(message);
         builder.setCancelable(false);
-        builder.setPositiveButton("TAMAM", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(getResources().getString(R.string.alert_button), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();

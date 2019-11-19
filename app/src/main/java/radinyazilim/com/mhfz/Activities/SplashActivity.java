@@ -42,8 +42,8 @@ public class SplashActivity extends AppCompatActivity {
             timerThread.start();
         } else {
             final android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(SplashActivity.this);
-            builder.setTitle("Hata!");
-            builder.setMessage("İnternete bağlı değilsiniz tekrar deneyin.");
+            builder.setTitle(getResources().getString(R.string.network_dialog_title));
+            builder.setMessage(getResources().getString(R.string.network_dialog_message));
             builder.setCancelable(false);
             builder.setPositiveButton("TAMAM", new DialogInterface.OnClickListener() {
                 @Override

@@ -3,10 +3,10 @@
     <string name="title_activity_bottom_navigation"><b>MHFZ</b> </string>
     <string name="title_home">İşçi Takip</string>
     <string name="title_dashboard">Kontrol</string>
-    <string name="title_notifications">Ayarlar</string>
+    <string name="title_notifications">Profil</string>
     <string name="id"></string>
-    <string name="intro_purpose_title"></string>
-    <string name="intro_purpose">Slogan</string>
+    <string name="intro_purpose_title">MHFZ ile </string>
+    <string name="intro_purpose">"Takalım, Takip Edelim, Kaybetmeyelim" düşüncesiyle yola çıkıp iş sağlığı ve güvenliği takibi gerektiren her alana otomasyon sistemler uygulayıp iş kazalarını engellemeyi amaçlıyoruz.</string>
     <string name="intro_employee_title">İhmalleri Takip Edin</string>
     <string name="intro_employee">Sahada bulunan çalışanların iş güvenliği ekipmanlarını kullanmadığı süreyi kontrol edebilirsiniz.
         Aynı zamanda bu süre doğrultusunda çalışanın puanını görebilirsiniz</string>
@@ -16,10 +16,81 @@
     <string name="intro_external_factors">Çevresel koruma faktörlerinin durumunu otomatik veya manuel olarak fotoğraf ile bildirebilirsiniz</string>
     <string name="intro_information_title">Detaylı Bilgi İçin</string>
     <string name="intro_information">Uygulama kullanımı hakkında daha fazla bilgi edinmek için lütfen aşağıdaki bağlantı adresine tıklayınız</string>
-    <string name="intro_email_title"></string>
-    <string name="intro_email">Daha fazlası için E-Posta adresinden bize ulaşabilirsiniz</string>
+    <string name="intro_email_title">Daha fazlası için bizim ile iletişime geçebilirsiniz</string>
+    <string name="intro_email"> radinyazilim@gmail.com</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="login">Giriş</string>
+    <string name="number">Sicil Numarası</string>
+    <string name="password">Şifre</string>
+    <string name="remind">Beni Hatırla !</string>
+    <string name="login_dialog_title">Hatalı Giriş</string>
+    <string name="login_dialog_password">Parola yanlış! Lütfen tekrar deneyiniz.</string>
+    <string name="login_dialog_id">Kullanıcı Id yanlış! Lütfen tekrar deneyiniz.</string>
+    <string name="login_dialog_empty">Alanlar boş bırakılamaz ! Lütfen tekrar deneyiniz</string>
+
+    <string name="control_Title">Lütfen gerekli kontrolleri yapınız !</string>
+    <string name="control_case">Olumlu veya olumsuz durumları aşağıdaki butonlar ile belirtiniz.</string>
+    <string name="control_envanter">İşçi envanterleri eksiksiz</string>
+    <string name="control_file">Fileler takılı ve sağlam</string>
+    <string name="control_halat">Halatlar sağlam</string>
+    <string name="control_around">İnşaat çevre koruması yeterli</string>
+    <string name="control_foto">Diğer eksiklikleri lütfen fotoğraf çekerek belirtiniz.</string>
+    <string name="control_envanter_alert_positive">Envanterlerin tam olduğuna dair bildiriminiz şirkete iletilmiştir.</string>
+    <string name="control_envanter_alert_negative">Envanterlerin tam olmadığına dair bildiriminiz şirkete iletilmiştir</string>
+    <string name="control_file_alert_positive">Fileler tam ve sağlam olduğuna dair mesajınız şirkete iletilmiştir.</string>
+    <string name="control_file_alert_negative">Fileler tam ve sağlam olmadığına dair bildiriminiz şirkete iletilmiştir.</string>
+    <string name="control_halat_alert_positive">Halatlar tam ve sağlam olduğuna dair bildiriminiz şirkete iletilmiştir.</string>
+    <string name="control_halat_alert_negative">Halatlar tam ve sağlam olmadığına dair bildiriminiz şirkete iletilmiştir.</string>
+    <string name="control_around_alert_positive">Çevre koruma tedbirlerinin alındığına dair bildiriminiz şirkete iletilmiştir.</string>
+    <string name="control_around_alert_negative">Çevre koruma tedbirlerinin alınmadığına dair bildiriminiz şirkete iletilmiştir.</string>
+    <string name="control_foto_description">Açıklamanızı yazınız.</string>
+
+    <string name="name_surname">İsim Soyisim</string>
+    <string name="expert_id">id</string>
+    <string name="address">address</string>
+    <string name="change_password">ŞİFRE DEĞİŞTİR</string>
+    <string name="feedback">Geri Bildirim</string>
+    <string name="profile">MHFZ İş Güvenliği Sistemleri</string>
+
+    <string name="minute">dakika</string>
+    <string name="time">Takılmayan Süre</string>
+    <string name="puan">Puan</string>
+    <string name="emergency_case">Bildirim geldiğinde kontrolden sonra olumsuz bir durum olduğunda butona basınız.</string>
+    <string name="button_emergency">Acil Durum</string>
+    <string name="emergency_dialog_title">Dikkat</string>
+    <string name="emergency_dialog">Acil Durum şirketinize bildirilmek üzere devam etmek istiyormusunuz?</string>
+    <string name="emergency_dialog_positive_button">DEVAM</string>
+    <string name="emergency_dialog_negative_button">Vazgeç</string>
+    <string name="emergency_toast_title">Başarılı</string>
+    <string name="emergency_toast_message">Acil Durum Şirketinize Bildirildi</string>
+    
+    
+    <string name="password_change_title">Parola Değiştir</string>
+    <string name="edit_id">Sicil numaranızı yazınız.</string>
+    <string name="edit_old_password">Eski parolanızı giriniz.</string>
+    <string name="edit_new_password">Yeni parolanızı giriniz.</string>
+    <string name="error">Hatalı İşlem</string>
+    <string name="error_message">Sistemde bir arıza oluştu. Lütfen tekrar deneyiniz.</string>
+    <string name="information">Bilgi</string>
+    <string name="information_message">Parolanız başarıyla güncellendi.</string>
+    <string name="error_old_password">Eski şifrenizi yanlış girdiniz.Lütfen tekrar deneyiniz.</string>
+    <string name="error_id">Kullanıcı numaranızı yanlış girdiniz. Lütfen tekrar giriniz.</string>
+    <string name="alert_button">Tamam</string>
+    
+    <string name="feedback_button">Gönder</string>
+    <string name="feedback_alert_title">Kayıt</string>
+    <string name="feedback_alert">Geri bildiriminiz başarıyla tarafımıza gönderilmiştir.</string>
+    <string name="feedback_title">Geri Bildirim</string>
+    <string name="feedback_information">Tarafımıza iletmek istediğiniz mesajı yazınız.</string>
+
+    <string name="logout">Çıkış</string>
+    <string name="logout_message">Uygulamadan çıkış yapmak istediğinize emin misiniz?</string>
+    <string name="logout_positive">Evet</string>
+    <string name="logout_negative">Hayır</string>
+
+    <string name="network_dialog_title">Hata!</string>
+    <string name="network_dialog_message">İnternete bağlı değilsiniz tekrar deneyin.</string>
+
     <string name="title_activity_foto_control">FotoControlActivity</string>
 </resources>

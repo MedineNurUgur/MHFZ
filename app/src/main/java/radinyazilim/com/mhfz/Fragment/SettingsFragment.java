@@ -122,7 +122,7 @@ public class SettingsFragment extends Fragment {
         YeniParola = dialogView.findViewById(R.id.YeniParola);
         materialDialog.customView(dialogView, false);
         materialDialog.cancelable(true);
-        materialDialog.positiveText("Parola değiştir");
+        materialDialog.positiveText(getResources().getString(R.string.password_change_title));
         materialDialog.onPositive(new MaterialDialog.SingleButtonCallback() {
             @Override
             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
@@ -147,10 +147,10 @@ public class SettingsFragment extends Fragment {
                             public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
                                 if (!response.isSuccessful()) {
                                     Log.d(TAG, String.valueOf(response.code()));
-                                    Alert("Hata","Sistemde bir arıza oluştu. Lütfen tekrar deneyiniz");
+                                    Alert(getResources().getString(R.string.error),getResources().getString(R.string.error_message));
                                 }
                                 else{
-                                    Alert("Bilgi","Parolanız başarıyla güncellendi.");
+                                    Alert(getResources().getString(R.string.information),getResources().getString(R.string.information_message));
                                 }
 
                             }
@@ -162,12 +162,12 @@ public class SettingsFragment extends Fragment {
                         });
                     }
                     else{
-                        Alert("Hatalı İşlem","Eski şifrenizi yanlış girdiniz.Lütfen tekrar deneyiniz");
+                        Alert(getResources().getString(R.string.error),getResources().getString(R.string.error_old_password));
                     }
                 }
                 else{
                     Log.d(TAG,"İşci bulunamadı");
-                    Alert("Hatalı işlem","Kullanıcı numaranızı yanlış girdiniz.Lütfen tekrar giriniz.");
+                    Alert(getResources().getString(R.string.error),getResources().getString(R.string.error_id));
                 }
 
                 dialog.dismiss();
@@ -184,13 +184,13 @@ public class SettingsFragment extends Fragment {
         Feedback = dialogView.findViewById(R.id.Feedback);
         materialDialog.customView(dialogView, false);
         materialDialog.cancelable(true);
-        materialDialog.positiveText("Gönder");
+        materialDialog.positiveText(getContext().getApplicationContext().getString(R.string.feedback_button));
         materialDialog.onPositive(new MaterialDialog.SingleButtonCallback() {
             @Override
             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                 String feedback = Feedback.getText().toString();
                 createPost(feedback);
-                Alert("Kayıt","Geri bildiriminiz başarıyla tarafımıza gönderilmiştir.");
+                Alert(getResources().getString(R.string.feedback_alert_title),getResources().getString(R.string.feedback_alert));
                 dialog.dismiss();
 
             }
@@ -202,7 +202,7 @@ public class SettingsFragment extends Fragment {
         builder.setTitle(title);
         builder.setMessage(message);
         builder.setCancelable(false);
-        builder.setPositiveButton("TAMAM", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(getResources().getString(R.string.alert_button), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();

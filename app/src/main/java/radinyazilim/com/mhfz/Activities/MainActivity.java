@@ -77,10 +77,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Çıkış");
-                builder.setMessage("Uygulamadan çıkış yapmak istediğinize emin misiniz?");
+                builder.setTitle(getResources().getString(R.string.logout));
+                builder.setMessage(getResources().getString(R.string.logout_message));
                 builder.setCancelable(false);
-                builder.setPositiveButton("EVET", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(getResources().getString(R.string.logout_positive), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         editor.putBoolean("login", false);
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
-                builder.setNegativeButton("HAYIR", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(getResources().getString(R.string.logout_negative), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();

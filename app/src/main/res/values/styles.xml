@@ -113,6 +113,12 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="CustomEditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="colorAccent">@color/solukgri</item>
+        <item name="android:textColor">@color/solukgri</item>
+        <item name="android:background">@color/solukgri</item>
+    </style>
+
     <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

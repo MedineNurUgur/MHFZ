@@ -1,4 +1,5 @@
 package radinyazilim.com.mhfz.Fragment;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -117,13 +118,15 @@ public class IsciTakipFragment extends Fragment implements RecyclerViewAdaptor.I
             });
 
         }
+        DecimalFormat df=new DecimalFormat("#.##");
 
         Intent intent = new Intent(getContext(), EmployeeDetailActivity.class);
         intent.putExtra("Name",employee.nameSurname);
         intent.putExtra("Id",employee.employeeId);
-        intent.putExtra("Time",employee.takilmayanSure.toString());
+        intent.putExtra("Time",df.format(employee.takilmayanSure));
         intent.putExtra("Puan",employee.puan.toString());
         startActivity(intent);
+
 
 
 

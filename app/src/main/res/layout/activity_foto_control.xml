@@ -6,21 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".Activities.FotoControlActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@android:color/transparent"
-            app:popupTheme="@style/PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
+        android:layout_gravity="top"
+        android:background="@android:color/transparent"
+        android:elevation="3dp"
+        app:contentInsetStartWithNavigation="0dp">
+    </android.support.v7.widget.Toolbar>
 
     <include layout="@layout/content_foto_control" />
+
+
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -31,4 +30,16 @@
         android:backgroundTint="@color/hardal_sarısı"
         app:srcCompat="@drawable/send" />
 
+    <EditText
+        android:id="@+id/editInformation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="@string/control_foto_description"
+        android:textColorHint="@color/solukgri"
+        android:inputType="textPersonName"
+        android:layout_gravity="bottom|end"
+        android:theme="@style/CustomEditTextStyle"
+        />
 </android.support.design.widget.CoordinatorLayout>

@@ -64,7 +64,7 @@
 
                         <TextView
                             style="@style/headerTextPrimary"
-                            android:text="Giriş"
+                            android:text="@string/login"
                             android:layout_marginTop="@dimen/loginViewsMargin"/>
 
                         <android.support.design.widget.TextInputLayout
@@ -76,7 +76,7 @@
                                 style="@style/modifiedEditText"
                                 android:inputType="textEmailAddress"
                                 android:maxLines="1"
-                                android:hint="Mail"/>
+                                android:hint="@string/number"/>
                         </android.support.design.widget.TextInputLayout>
 
                         <android.support.design.widget.TextInputLayout
@@ -86,7 +86,7 @@
                             <EditText
                                 android:id="@+id/editTextPassword"
                                 style="@style/modifiedEditText"
-                                android:hint="Şifre"
+                                android:hint="@string/password"
                                 android:maxLines="1"
                                 android:inputType="textPassword"/>
                         </android.support.design.widget.TextInputLayout>
@@ -95,7 +95,7 @@
                             android:id="@+id/checkBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Beni Hatırla !"
+                            android:text="@string/remind"
                             android:layout_marginTop="10dp"
                             style="@style/viewParent"
                             android:textColor="@color/primaryTextColor"
@@ -105,7 +105,7 @@
                         <Button
                             android:id="@+id/cirLoginButton"
                             style="@style/loginButton"
-                            android:text="Giriş"
+                            android:text="@string/login"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="@dimen/loginViewsMargin"/>
 

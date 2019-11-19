@@ -73,7 +73,7 @@
                             android:layout_marginTop="@dimen/spacing_minor"
                             android:layout_marginBottom="@dimen/half_padding"
                             android:gravity="center_horizontal"
-                            android:text="ESRA MEDİNE"
+                            android:text="@string/name_surname"
                             android:textAppearance="@style/title" />
                     </TableRow>
 
@@ -85,7 +85,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/spacing_major"
                             android:gravity="center_horizontal"
-                            android:text="123456"
+                            android:text="@string/expert_id"
                             android:textAllCaps="true"
                             android:textAppearance="@style/Header" />
                     </TableRow>
@@ -107,7 +107,7 @@
                         android:layout_marginLeft="@dimen/spacing_minor"
                         android:layout_weight="1"
                         android:gravity="center|left"
-                        android:text="Takılmayan Süre"
+                        android:text="@string/time"
                         android:textAppearance="@style/body1" />
 
                     <TextView
@@ -145,7 +145,7 @@
                         android:layout_marginLeft="@dimen/spacing_minor"
                         android:layout_weight="1"
                         android:gravity="left|center"
-                        android:text="Puan"
+                        android:text="@string/puan"
                         android:textAppearance="@style/body1" />
 
                     <TextView
@@ -185,7 +185,7 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="@dimen/spacing_minor"
                         android:gravity="center"
-                        android:text="Bildirim geldiğinde kontrolden sonra olumlu yada olumsuz geri bildirim yapmak için butonlara basınız."
+                        android:text="@string/emergency_case"
                         android:textAppearance="@style/body1" />
 
                 </LinearLayout>
@@ -211,7 +211,7 @@
                         android:gravity="center"
                         android:paddingLeft="@dimen/spacing_major"
                         android:paddingRight="@dimen/spacing_major"
-                        android:text="Acil Durum"
+                        android:text="@string/button_emergency"
                         android:textAllCaps="true"
                         android:textAppearance="@style/buttonWhite" />
                 </LinearLayout>

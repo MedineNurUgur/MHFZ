@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MHFZ</string>
+    <string name="title_activity_bottom_navigation"><b>MHFZ</b> </string>
+    <string name="title_home">Worker Tracking</string>
+    <string name="title_dashboard">Control</string>
+    <string name="title_notifications">Profile</string>
+    <string name="id"></string>
+    <string name="intro_purpose_title">With MHFZ </string>
+    <string name="intro_purpose"> We aim to prevent occupational accidents by implementing automation systems in every field that requires monitoring of occupational health and safety by starting with the idea of "Let's wear it, follow it, don't lose"</string>
+    <string name="intro_employee_title">Follow Negligence</string>
+    <string name="intro_employee">You can check the amount of time that workers on site do not use occupational safety equipment. At the same time you can see the employee\'s score during this time.</string>
+    <string name="intro_employee_error_title">Follow Your Employees</string>
+    <string name="intro_employee_error">You can see the status of your employees in the field, you can automatically receive notification in case of neglect.</string>
+    <string name="intro_external_factors_title">Follow Environmental Factors</string>
+    <string name="intro_external_factors">You can report the status of environmental protection factors automatically or manually with photographs.</string>
+    <string name="intro_information_title">For detailed information</string>
+    <string name="intro_information">To learn more about using the app, please click on the link below</string>
+    <string name="intro_email_title">Please contact us for more information</string>
+    <string name="intro_email"> radinyazilim@gmail.com</string>
+
+
+    <string name="login">Login</string>
+    <string name="number">Registration number</string>
+    <string name="password">Password</string>
+    <string name="remind">Remind Me !</string>
+    <string name="login_dialog_title">Incorrect entry</string>
+    <string name="login_dialog_password">Incorrect password! Please try again</string>
+    <string name="login_dialog_id">Incorrect number! Please try again</string>
+    <string name="login_dialog_empty">Fields cannot be left blank ! Please try again</string>
+
+    <string name="control_Title">Please carry out the necessary checks !</string>
+    <string name="control_case">Indicate positive or negative situations with the following buttons.</string>
+    <string name="control_envanter">Worker inventories complete</string>
+    <string name="control_file">Nets attached and robust</string>
+    <string name="control_halat">Ropes are intact</string>
+    <string name="control_around">Construction environmental protection is adequate</string>
+    <string name="control_foto">Diğer eksiklikleri lütfen fotoğraf çekerek belirtiniz.</string>
+    <string name="control_envanter_alert_positive">Your notification that the inventories are complete has been sent to the company.</string>
+    <string name="control_envanter_alert_negative">Your company has been notified that the inventories are not complete.</string>
+    <string name="control_file_alert_positive">Your message has been sent to the company that the nets are complete and intact.</string>
+    <string name="control_file_alert_negative">Your message has been sent to the company that the nets are not complete and intact..</string>
+    <string name="control_halat_alert_positive">Your notification that the ropes are complete and intact has been sent to the company.</string>
+    <string name="control_halat_alert_negative">Your notification that the ropes are not complete and intact has been sent to the company.</string>
+    <string name="control_around_alert_positive">Your company has been informed that environmental protection measures have been taken.</string>
+    <string name="control_around_alert_negative">Your company has been informed that environmental protection measures have not been taken.</string>
+    <string name="control_foto_description">Write your description.</string>
+
+    <string name="name_surname">Name Surname</string>
+    <string name="expert_id">id</string>
+    <string name="address">address</string>
+    <string name="change_password">CHANGE PASSWORD</string>
+    <string name="feedback">Feedback</string>
+    <string name="profile">MHFZ Occupational Safety Systems</string>
+
+    <string name="minute">minute</string>
+    <string name="time">Non-tripping Time</string>
+    <string name="puan">Score</string>
+    <string name="emergency_case">When the notification comes, press the button in a negative state after the check.</string>
+    <string name="button_emergency">Emergency</string>
+    <string name="emergency_dialog_title">Attention</string>
+    <string name="emergency_dialog">Do you want to continue to be notified Emergency to your company?</string>
+    <string name="emergency_dialog_positive_button">CONTINUE</string>
+    <string name="emergency_dialog_negative_button">Give up</string>
+    <string name="emergency_toast_title">Successful</string>
+    <string name="emergency_toast_message">Emergency Notified to Your Company</string>
+
+
+    <string name="password_change_title">Change Parola</string>
+    <string name="edit_id">Enter your registration number.</string>
+    <string name="edit_old_password">Enter your old password.</string>
+    <string name="edit_new_password">Enter your new password.</string>
+    <string name="error">Incorrect operation</string>
+    <string name="error_message">A system malfunction has occurred. Please try again.</string>
+    <string name="information">Information</string>
+    <string name="information_message">Your password has been successfully updated.</string>
+    <string name="error_old_password">You have entered your old password incorrectly. Please try again.</string>
+    <string name="error_id">You have entered your user number incorrectly. Please enter again.</string>
+    <string name="alert_button">Ok</string>
+
+    <string name="feedback_button">Send</string>
+    <string name="feedback_alert_title">Record</string>
+    <string name="feedback_alert">Your feedback has been successfully sent to us.</string>
+    <string name="feedback_title">Feedback</string>
+    <string name="feedback_information">Please write the message you want to send to us.</string>
+
+    <string name="logout">Logout</string>
+    <string name="logout_message">Are you sure you want to exit the application?</string>
+    <string name="logout_positive">Yes</string>
+    <string name="logout_negative">No</string>
+
+    <string name="network_dialog_title">Error!</string>
+    <string name="network_dialog_message">You are not connected to the internet, try again.</string>
+
+    <string name="title_activity_foto_control">FotoControlActivity</string>
+</resources>

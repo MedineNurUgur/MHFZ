@@ -30,6 +30,7 @@ public class FotoControlActivity extends AppCompatActivity {
     ImageView image;
     String encodedImage;
     EditText description;
+    Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,16 @@ public class FotoControlActivity extends AppCompatActivity {
         setContentView(R.layout.activity_foto_control);
         //Toolbar toolbar = findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
+        mToolbar = findViewById(R.id.toolbar);
+        mToolbar.setNavigationIcon(R.drawable.leftarrow);
+        mToolbar.setTitle("");
+        setSupportActionBar(mToolbar);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
 
         image = (ImageView) findViewById(R.id.imageView);

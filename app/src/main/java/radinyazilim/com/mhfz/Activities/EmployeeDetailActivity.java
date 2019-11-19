@@ -75,13 +75,13 @@ public class EmployeeDetailActivity extends AppCompatActivity {
         nameTxt.setText(name);
         idTxt.setText(id);
         puanTxt.setText(puan);
-        timeTxt.setText(time);
+        timeTxt.setText(time+" "+getResources().getString(R.string.minute));
 
         positive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                showDialog("Dikkat","Acil Durum şirketinize bildirilmek üzere devam etmek istiyormusunuz?");
+                showDialog(getResources().getString(R.string.emergency_dialog_title),getResources().getString(R.string.emergency_dialog));
             }
         });
 
@@ -90,8 +90,8 @@ public class EmployeeDetailActivity extends AppCompatActivity {
         new MaterialDialog.Builder(this)
                 .title(title)
                 .content(message)
-                .positiveText("DEVAM")
-                .negativeText("Vazgeç")
+                .positiveText(getResources().getString(R.string.emergency_dialog_positive_button))
+                .negativeText(getResources().getString(R.string.emergency_dialog_negative_button))
                 .positiveColor(getResources().getColor(R.color.colorPrimaryDark))
                 .negativeColor(getResources().getColor(R.color.kirmizi))
                 .cancelable(false)
@@ -120,6 +120,7 @@ public class EmployeeDetailActivity extends AppCompatActivity {
         call.enqueue(new Callback<FeedbackModel>() {
             @Override
             public void onResponse(Call<FeedbackModel> call, Response<FeedbackModel> response) {
+                showSuccessMessage();
                 if(!response.isSuccessful()){
                     showSuccessMessage();
                 }
