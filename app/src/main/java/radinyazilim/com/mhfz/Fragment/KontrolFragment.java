@@ -1,48 +1,24 @@
 package radinyazilim.com.mhfz.Fragment;
 
-import android.content.Context;
-import android.content.DialogInterface;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.Toast;
-import android.widget.VideoView;
-
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-
-import radinyazilim.com.mhfz.Activities.EmployeeDetailActivity;
 import radinyazilim.com.mhfz.Activities.FotoControlActivity;
-import radinyazilim.com.mhfz.Activities.LoginActivity;
-import radinyazilim.com.mhfz.Api.ApiClient;
-import radinyazilim.com.mhfz.Api.ControlsRestInterface;
-import radinyazilim.com.mhfz.Api.ExpertApiClient;
-import radinyazilim.com.mhfz.Api.ExpertRestInterface;
 import radinyazilim.com.mhfz.Api.FeedbackApiClient;
 import radinyazilim.com.mhfz.Api.FeedbackRestInterface;
 import radinyazilim.com.mhfz.R;
-import radinyazilim.com.mhfz.models.ControlModel;
-import radinyazilim.com.mhfz.models.ExpertModel;
 import radinyazilim.com.mhfz.models.FeedbackModel;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -52,8 +28,8 @@ import retrofit2.Response;
 public class KontrolFragment extends Fragment {
     private static final int RESULT_OK = -1;
     ImageButton envanter_ok,file_ok,halat_ok,cevre_ok;
-    ImageButton envanter_minus,file_minus,halat_minus,cevre_minus;
-    ImageButton foto;
+    FloatingActionButton foto;
+    private Boolean controlArr[];
     private static final int IMAGE_ACTION_CODE = 102;
 
     private static final String TAG = "Mhfz-> ";
@@ -68,15 +44,14 @@ public class KontrolFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_kontrol,null);
         envanter_ok = view.findViewById(R.id.env_ok);
-        envanter_minus = view.findViewById(R.id.env_minus);
+
         file_ok = view.findViewById(R.id.file_ok);
-        file_minus = view.findViewById(R.id.file_minus);
+
         halat_ok = view.findViewById(R.id.halat_ok);
-        halat_minus = view.findViewById(R.id.halat_minus);
         cevre_ok = view.findViewById(R.id.cevre_ok);
-        cevre_minus = view.findViewById(R.id.cevre_minus);
         foto = view.findViewById(R.id.foto);
 
+        controlArr=new Boolean[]{true,true,true,true};
         foto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,70 +63,74 @@ public class KontrolFragment extends Fragment {
         envanter_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog(getResources().getString(R.string.feedback_alert_title),getResources().getString(R.string.control_envanter_alert_positive));
+                if (controlArr[0]){
+                    controlArr[0]=false;
+                    envanter_ok.setBackgroundResource(R.drawable.delete);
+                }
+                else {
+                    envanter_ok.setBackgroundResource(R.drawable.checkmark);
+                    controlArr[0]=true;
+                }
+
+
+
                 createPost("İşçi envanterinde eksik yok.");
             }
         });
 
 
-        envanter_minus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialog(getResources().getString(R.string.feedback_alert_title),getResources().getString(R.string.control_envanter_alert_negative));
-                createPost("İşçi envanterinde eksik var.");
-
-            }
-        });
 
         file_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog(getResources().getString(R.string.feedback_alert_title),getResources().getString(R.string.control_file_alert_positive));
+                if (controlArr[1]){
+                    controlArr[1]=false;
+                    file_ok.setBackgroundResource(R.drawable.delete);
+                }
+                else {
+                    file_ok.setBackgroundResource(R.drawable.checkmark);
+                    controlArr[1]=true;
+                }
                 createPost("Fileler tam ve sağlam.");
             }
         });
 
 
 
-        file_minus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialog(getResources().getString(R.string.feedback_alert_title),getResources().getString(R.string.control_file_alert_negative));
-                createPost("Fileler tam ve sağlam değil.");
-            }
-        });
         halat_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog(getResources().getString(R.string.feedback_alert_title),getResources().getString(R.string.control_halat_alert_positive));
+                if (controlArr[2]){
+                    controlArr[2]=false;
+                    halat_ok.setBackgroundResource(R.drawable.delete);
+                }
+                else {
+                    halat_ok.setBackgroundResource(R.drawable.checkmark);
+                    controlArr[2]=true;
+                }
+
                 createPost("Halatlar tam ve sağlam.");
             }
         });
 
 
-        halat_minus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialog(getResources().getString(R.string.feedback_alert_title),getResources().getString(R.string.control_halat_alert_negative));
-                createPost("Halatlar tam ve sağlam değil.");
-            }
-        });
         cevre_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog(getResources().getString(R.string.feedback_alert_title),getResources().getString(R.string.control_around_alert_positive));
+                if (controlArr[3]){
+                    controlArr[3]=false;
+                    cevre_ok.setBackgroundResource(R.drawable.delete);
+                }
+                else {
+                    cevre_ok.setBackgroundResource(R.drawable.checkmark);
+                    controlArr[3]=true;
+                }
+
                 createPost("Çevre koruması sağlandı.");
             }
         });
 
 
-        cevre_minus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialog(getResources().getString(R.string.feedback_alert_title),getResources().getString(R.string.control_around_alert_negative));
-                createPost("Çevre koruması sağlanamadı.");
-            }
-        });
 
 
         return view;

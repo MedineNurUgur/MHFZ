@@ -27,5 +27,6 @@
 
     <color name="dialog_green">#00BA7C</color>
     <color name="dialog_red">#D0021B</color>
+    <color name="bottom_nav">#ffd600</color>
 
 </resources>

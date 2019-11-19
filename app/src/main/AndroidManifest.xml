@@ -16,7 +16,7 @@
         <activity
             android:name=".Activities.FotoControlActivity"
             android:label="@string/title_activity_foto_control"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar" />
         <activity android:name=".Activities.IntroActivity" />
         <activity android:name=".Activities.EmployeeDetailActivity" />
         <activity
